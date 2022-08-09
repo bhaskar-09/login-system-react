@@ -1,0 +1,1932 @@
+/* -------------------------------------------------------------- */
+/*  03. Listings Styles
+----------------------------------------------------------------- */
+
+/* ---------------------------------- */
+/* Full Width Page Layout
+------------------------------------- */
+.full-page-container {
+    display: flex;
+    width: 100%;
+    flex-wrap: wrap;
+}
+
+.full-page-sidebar {
+    flex: 0 0 360px;
+    background-color: #fafafa;
+    position: relative;
+}
+
+.full-page-sidebar .full-page-sidebar-inner {
+    overflow: auto;
+    height: 100%;
+}
+
+.full-page-sidebar .sidebar-container {
+    padding: 40px;
+}
+
+.full-page-sidebar .simplebar-scrollbar {
+    width: 5px;
+}
+
+.full-page-sidebar .sidebar-widget:last-of-type {
+    margin-bottom: 80px;
+}
+
+.full-page-content-container {
+    flex: 1;
+    background-color: #fff;
+    padding: 0;
+    overflow: auto;
+}
+
+.full-page-content-inner {
+    padding: 40px;
+    padding-bottom: 0;
+}
+
+.full-page-content-inner .grid-layout {
+    width: calc(100% + 30px)
+}
+
+.full-page-content-inner .grid-layout .job-listing {
+    margin: 0 30px 30px 0;
+    width: calc(100% * (1/3) - 30px);
+}
+
+/* Search Button */
+.sidebar-search-button-container {
+    position: absolute;
+    width: calc(100% - 15px);
+    bottom: 0;
+    padding: 40px;
+    padding-top: 10px;
+    z-index: 100;
+    background-color: #fafafa;
+
+}
+
+.sidebar-search-button-container button {
+    width: calc(100% + 15px);
+    line-height: 46px;
+    height: 46px;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(102, 103, 107, 0.1);
+}
+
+.sidebar-search-button-container button:hover {
+    box-shadow: 0 4px 12px rgba(102, 103, 107, 0.25);
+    transform: translateY(-2px)
+}
+
+
+/* Small Footer */
+.small-footer {
+    border-top: 1px solid #e0e0e0;
+    padding-top: 0px;
+    width: calc(100% + 80px);
+    left: -40px;
+    position: relative;
+    padding: 25px 40px;
+    display: flex;
+}
+
+.small-footer strong {
+    color: #333;
+}
+
+.small-footer-copyrights {
+    flex: 2;
+}
+
+.small-footer .footer-social-links {
+    transform: none;
+    flex: 1;
+    text-align: right;
+    float: right;
+    display: inline-block;
+    margin: 0 -5px 0 0;
+    position: relative;
+    top: 2px;
+}
+
+.small-footer .footer-social-links li {
+    color: #333;
+    transform: none;
+    float: none;
+    margin: 0 -3px;
+}
+
+.small-footer .footer-social-links li a {
+    color: #333;
+    transform: none;
+}
+
+
+
+/* Full Page With Map
+------------------------------------- */
+.full-page-map-container {
+    flex: auto;
+    position: relative;
+    background-color: #e5e3df;
+}
+
+.full-page-map-container #map {
+    position: relative;
+    z-index: 30;
+}
+
+.full-page-container.with-map .full-page-content-container {
+    flex: 0 0 50vw;
+}
+
+/* Sliding Sidebar */
+.full-page-sidebar.hidden-sidebar {
+    visibility: hidden;
+    transition: 0.4s;
+    position: relative;
+    opacity: 0;
+    max-width: 0;
+}
+
+
+/*.full-page-container.with-map .full-page-sidebar .sidebar-search-button-container,*/
+.full-page-container.with-map .full-page-sidebar .full-page-sidebar-inner {
+    width: 360px;
+}
+
+
+.full-page-sidebar.hidden-sidebar.enabled-sidebar {
+    visibility: visible;
+    opacity: 1;
+    max-width: 360px;
+}
+
+/* Enable Filter Button */
+.enable-filters-button {
+    position: relative;
+    left: 48px;
+    top: 0px;
+    z-index: 100;
+    background-color: #fff;
+    color: #333;
+    border-radius: 0 4px 4px 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    height: 48px;
+    line-height: 48px;
+    padding: 0;
+    transition: 0.3s;
+    min-width: 126px;
+    text-align: center;
+}
+
+.enable-filters-button span {
+    position: relative;
+    padding: 0 15px;
+    background-color: #66676b;
+    color: #fff;
+    width: 100%;
+    z-index: 100;
+    border-radius: 0 4px 4px 0;
+    transition: 0.3s;
+}
+
+/* Filter Button Container */
+.filter-button-container {
+    position: absolute;
+    left: 40px;
+    top: 20px;
+    width: calc(100% - 40px);
+    overflow-x: hidden;
+    padding: 20px 0;
+}
+
+.filter-button-tooltip {
+    position: absolute;
+    width: auto;
+    left: 15px;
+    top: 24px;
+    z-index: 100;
+    border-radius: 4px;
+    width: auto;
+    animation: tooltip-bounce 2s infinite;
+    margin-left: 15px;
+    white-space: nowrap;
+    opacity: 0;
+    overflow: visible;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    padding: 0 20px;
+    background-color: #fff;
+    color: #555;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    font-size: 15.7px;
+    line-height: 48px;
+    top: 20px;
+}
+
+.filter-button-tooltip.tooltip-visible {
+    opacity: 1;
+}
+
+.filter-button-tooltip:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 0;
+    top: calc(50% - 3px);
+    content: "";
+    left: -3px;
+    box-sizing: border-box;
+    border: 5px solid black;
+    border-color: transparent transparent #fff #fff;
+    transform-origin: 0 0;
+    transform: rotate(45deg) translateY(-50%);
+    box-shadow: -2px 2px 2px 0 rgba(0, 0, 0, 0.04);
+}
+
+@keyframes tooltip-bounce {
+
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+        transform: translateX(0);
+    }
+
+    40% {
+        transform: translateX(14px);
+    }
+
+    60% {
+        transform: translateX(7px);
+    }
+}
+
+
+/* Hover & Active States */
+.enable-filters-button:hover i,
+.enable-filters-button.active i,
+.enable-filters-button:hover span,
+.enable-filters-button.active span {
+    background-color: #333;
+}
+
+.enable-filters-button:hover i:after,
+.enable-filters-button:hover i:before,
+.enable-filters-button.active i:after,
+.enable-filters-button.active i:before {
+    background-color: rgba(0, 0, 0, 0.25);
+}
+
+.enable-filters-button i {
+    position: absolute;
+    z-index: 90;
+    left: -48px;
+    height: 100%;
+    font-size: 20px;
+    background-color: #66676b;
+    color: #fff;
+    line-height: 48px;
+    text-align: center;
+    width: 48px;
+    border-radius: 4px 0 0 4px;
+    font-style: normal;
+    font-family: "Feather-Icons";
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.enable-filters-button i:after,
+.enable-filters-button i:before {
+    position: absolute;
+    left: 0;
+    right: 0;
+    transition: 0.3s;
+    border-radius: 4px 0 0 4px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.enable-filters-button i:after {
+    content: "\e9d1";
+    opacity: 1;
+}
+
+.enable-filters-button.active i:after {
+    opacity: 0;
+}
+
+.enable-filters-button i:before {
+    content: "\ea02";
+    opacity: 0;
+}
+
+.enable-filters-button.active i:before {
+    opacity: 1;
+}
+
+.enable-filters-button span.show-text,
+.enable-filters-button.active span.hide-text {
+    display: inline-block;
+}
+
+.enable-filters-button.active span.show-text,
+.enable-filters-button span.hide-text {
+    display: none;
+}
+
+
+/* Location Field on Map */
+.location-field-on-map {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    width: 280px;
+    max-width: 40%;
+    z-index: 100;
+}
+
+.location-field-on-map input {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+
+/* Full Page Media Queries
+------------------------------------- */
+@media (max-width: 3860px) {
+    .full-page-content-inner .grid-layout .job-listing {
+        width: calc(100% * (1/4) - 30px);
+    }
+
+    /* Full Page With Map */
+    .full-page-container.with-map .full-page-content-inner .grid-layout .job-listing {
+        width: calc(100% * (1/3) - 30px);
+    }
+}
+
+@media (max-width: 2560px) {
+    .full-page-content-inner .grid-layout .job-listing {
+        width: calc(100% * (1/4) - 30px);
+    }
+
+    /* Full Page With Map */
+    .full-page-container.with-map .full-page-content-inner .grid-layout .job-listing {
+        width: calc(100% * (1/2) - 30px);
+    }
+}
+
+@media (max-width: 1920px) {
+    .full-page-content-inner .grid-layout .job-listing {
+        width: calc(100% * (1/3) - 30px);
+    }
+
+    /* Full Page With Map */
+    .full-page-container.with-map .full-page-sidebar {
+        flex: 0 0 340px
+    }
+
+    .full-page-container.with-map .full-page-sidebar .full-page-sidebar-inner {
+        width: 340px;
+    }
+
+    .full-page-container.with-map .full-page-content-inner .grid-layout .job-listing {
+        width: calc(100% * (1/2) - 30px);
+    }
+}
+
+@media (max-width: 1600px) {
+    .full-page-content-inner .grid-layout .job-listing {
+        width: calc(100% * (1/2) - 30px);
+    }
+
+    .full-page-sidebar {
+        flex: 0 0 340px;
+    }
+
+    /* Full Page With Map */
+    .full-page-container.with-map .full-page-sidebar {
+        flex: 0 0 320px
+    }
+
+    .full-page-container.with-map .full-page-sidebar .full-page-sidebar-inner {
+        width: 320px;
+    }
+
+    .full-page-container.with-map .full-page-content-inner .grid-layout .job-listing {
+        width: calc(100% - 30px);
+    }
+
+    .full-page-container.with-map .full-page-content-container {
+        flex: 0 0 55vw
+    }
+}
+
+@media (max-width: 1365px) {
+    .location-field-on-map {
+        left: 0px;
+        right: auto;
+        width: calc(100% - 80px);
+        max-width: calc(100% - 80px);
+        margin: 0 40px;
+    }
+
+    /* Notify Box Responsive Styles*/
+    .full-page-container .notify-box {
+        margin-bottom: 80px;
+    }
+
+    .full-page-container .notify-box .sort-by {
+        position: absolute;
+        margin-top: 40px;
+        left: 0;
+    }
+
+    .full-page-container .notify-box .sort-by .bootstrap-select .dropdown-menu {
+        left: 0;
+        right: auto;
+    }
+}
+
+
+@media (max-width: 1099px) {
+    .full-page-content-inner .grid-layout .job-listing {
+        width: calc(100% - 30px);
+    }
+
+    .full-page-sidebar {
+        flex: 0 0 340px;
+    }
+
+    /* Important Responsive Styles */
+    .full-page-map-container {
+        order: -1;
+        width: 100%;
+        height: 400px;
+        position: absolute;
+        top: 0;
+    }
+
+    .full-page-container.with-map {
+        padding-top: 400px;
+
+        height: auto !important;
+        width: 100%;
+        position: relative;
+
+    }
+
+    .full-page-container.with-map .full-page-sidebar {
+        max-width: 100%;
+        visibility: visible;
+        opacity: 1
+    }
+
+    .filter-button-container {
+        display: none;
+    }
+
+    .full-page-container.with-map .full-page-sidebar .full-page-sidebar-inner {
+        position: relative;
+        width: 100%;
+    }
+
+    .full-page-container.with-map .full-page-content-container {
+        flex: 1;
+    }
+
+    .full-page-container,
+    .full-page-sidebar-inner,
+    .full-page-content-container,
+    .full-page-container .full-page-sidebar {
+        height: auto !important;
+    }
+
+    .full-page-container .simplebar-track {
+        display: none;
+    }
+}
+
+@media (max-width: 992px) {
+    .location-field-on-map {
+        width: calc(100% - 50px);
+        max-width: calc(100% - 50px);
+        margin: 0 25px;
+        top: 25px;
+    }
+
+    .sidebar-search-button-container,
+    .full-page-sidebar .sidebar-container,
+    .full-page-content-inner {
+        padding: 35px;
+    }
+
+    .full-page-content-inner {
+        padding-bottom: 0;
+    }
+
+    .full-page-content-inner .grid-layout .job-listing {
+        width: calc(100% - 30px);
+    }
+
+    .full-page-sidebar {
+        flex: 0 0 320px;
+    }
+
+    .full-page-sidebar-inner,
+    .full-page-content-container,
+    .full-page-container .full-page-sidebar {
+        height: auto !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .location-field-on-map {
+        width: calc(100% - 30px);
+        max-width: calc(100% - 30px);
+        margin: 0 15px;
+    }
+
+    .sidebar-search-button-container,
+    .full-page-sidebar .sidebar-container,
+    .full-page-content-inner {
+        padding: 40px 15px;
+    }
+
+    .full-page-content-inner {
+        padding-bottom: 0;
+    }
+
+    .full-page-content-inner .grid-layout .job-listing {
+        width: calc(100% - 30px);
+    }
+
+    .full-page-sidebar {
+        flex: 1;
+        width: 100%;
+    }
+
+    .full-page-container {
+        display: block;
+        width: 100%;
+        flex-wrap: wrap;
+        height: auto;
+    }
+
+    .small-footer {
+        display: block;
+        text-align: center;
+    }
+
+    .small-footer .footer-social-links {
+        float: none;
+        left: -10px;
+        margin-top: 10px;
+    }
+
+}
+
+
+/* ---------------------------------- */
+/* Job Listing - List Layout
+------------------------------------- */
+.job-listing {
+    display: block;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    margin-bottom: 35px;
+    background-color: #fff;
+    transition: 0.3s;
+    position: relative;
+}
+
+.job-listing:hover {
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.14);
+    transform: translateY(-4px);
+}
+
+.job-listing-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 35px;
+    padding-bottom: 32px;
+}
+
+.job-listing .job-listing-company-logo {
+    flex: 1;
+    max-width: 55px;
+    margin-right: 25px;
+    position: relative;
+    top: 3px;
+}
+
+.job-listing .job-listing-company-logo img {
+    border-radius: 4px;
+    transform: translate3d(0, 0, 0);
+}
+
+.job-listing .job-listing-description {
+    flex: 1;
+    padding-top: 3px;
+}
+
+.job-listing .job-listing-description p {
+    margin: 15px 0 0 0;
+    padding: 0;
+    color: #666;
+}
+
+.job-listing h4.job-listing-company {
+    font-size: 16px;
+    color: #808080;
+}
+
+.job-listing h3.job-listing-title {
+    font-size: 20px;
+    color: #333;
+    line-height: 30px;
+}
+
+.job-listing .job-listing-footer {
+    background-color: #f9f9f9;
+    padding: 20px 35px;
+    border-radius: 0 0 4px 4px;
+    position: relative;
+}
+
+.job-listing .job-listing-footer ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.job-listing .job-listing-footer ul li {
+    display: inline-block;
+    margin-right: 14px;
+    color: #777;
+}
+
+.job-listing .job-listing-footer ul li:last-child {
+    margin-right: 0;
+}
+
+.job-listing .job-listing-footer ul li i.icon-material-outline-location-on {
+    margin-right: 0;
+}
+
+.job-listing .job-listing-footer ul li i {
+    position: relative;
+    top: 1px;
+    margin-right: 3px;
+    color: #777;
+}
+
+/* Media Queries for Default List Layout*/
+@media (max-width: 768px) {
+    .job-listing .job-listing-company-logo {
+        display: none;
+    }
+
+    .job-listing .job-listing-title {
+        padding-right: 10%;
+    }
+}
+
+/* ---------------------------------- */
+/* Job Listing - Compact List Layout
+------------------------------------- */
+.compact-list-layout {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.compact-list-layout .job-listing {
+    box-shadow: none;
+    margin-bottom: 0;
+    padding: 30px 35px;
+    padding-right: 80px;
+    border-radius: 0;
+}
+
+.compact-list-layout .job-listing:last-of-type {
+    border-radius: 0 0 3px 3px;
+    overflow: hidden;
+}
+
+.compact-list-layout .job-listing:first-of-type {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+}
+
+.compact-list-layout .job-listing h3 {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.compact-list-layout .job-listing:nth-child(2n) {
+    background-color: #fafafa;
+}
+
+.compact-list-layout .job-listing:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    display: block;
+    background: #66676b;
+    transition: 0.3s;
+    opacity: 0;
+}
+
+.compact-list-layout .job-listing:hover:before {
+    opacity: 1;
+}
+
+.compact-list-layout .job-listing:hover {
+    transform: none;
+}
+
+.compact-list-layout .job-listing .job-listing-footer {
+    background-color: transparent;
+    padding: 0;
+    margin-top: 3px;
+}
+
+.compact-list-layout .job-listing-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0;
+    top: 0;
+}
+
+.compact-list-layout .job-listing .job-listing-company-logo {
+    max-width: 50px;
+    margin-right: 30px;
+    top: 0;
+}
+
+.compact-list-layout .job-listing .verified-badge {
+    transform: scale(0.85) translate(8px, 8px);
+}
+
+.compact-list-layout .job-listing h3 .verified-badge {
+    transform: scale(0.85) translate(0, 0);
+    font-weight: 500;
+    top: 1px;
+}
+
+.compact-list-layout .job-listing h3 .verified-badge:before {
+    top: -1px;
+}
+
+.compact-list-layout .job-listing span.bookmark-icon {
+    top: 50%;
+    transform: translateY(-51%);
+}
+
+/* List Layuot Apply Button */
+.compact-list-layout .job-listing.with-apply-button {
+    position: relative;
+    padding-right: 35px;
+}
+
+.list-apply-button {
+    position: absolute;
+    right: 0;
+    padding: 10px 20px;
+    line-height: 24px;
+    position: relative;
+    font-size: 16px;
+    font-weight: 500;
+    display: inline-block;
+    transition: all 0.3s;
+    border-radius: 4px;
+    background: #f0f0f0;
+    color: #666;
+    text-align: center;
+}
+
+.job-listing.with-apply-button:hover .list-apply-button {
+    background-color: #66676b;
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(102, 103, 107, 0.15);
+}
+
+/* Alt Styles for Single Company Profile */
+.boxed-list .compact-list-layout {
+    box-shadow: none;
+    margin-top: 0;
+}
+
+.boxed-list .compact-list-layout .job-listing:hover {
+    border-left: none;
+}
+
+.boxed-list .compact-list-layout .job-listing:first-of-type {
+    border-radius: 0;
+}
+
+/* Media Queries for Grid Layout */
+@media (max-width: 768px) {
+    .list-apply-button {
+        flex: auto;
+        width: 100%;
+        margin-top: 15px;
+    }
+}
+
+
+/* ---------------------------------- */
+/* Job Listing - Grid Layout
+------------------------------------- */
+.grid-layout {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% + 30px);
+}
+
+.grid-layout .job-listing {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 30px 30px 0;
+    width: calc(100% * (1/2) - 30px);
+    flex-direction: column;
+}
+
+.grid-layout .job-listing-details {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 30px;
+    padding-right: 40px;
+}
+
+/* IE 11 Fixes */
+@media screen and (-ms-high-contrast: active),
+screen and (-ms-high-contrast: none) {
+
+    .tasks-list-container.tasks-grid-layout .task-listing .task-listing-details,
+    .grid-layout .job-listing-details {
+        flex-basis: 100px;
+    }
+
+    .tasks-list-container.tasks-grid-layout .task-listing-bid {
+        flex-basis: 100px;
+    }
+}
+
+/* IE 11 Fixes - End */
+
+.grid-layout .job-listing-footer {
+    flex-grow: 0;
+    padding: 20px 30px;
+}
+
+.grid-layout .job-listing h3.job-listing-title {
+    font-size: 18px;
+    line-height: 28px;
+}
+
+.grid-layout .job-listing-footer .bookmark-icon {
+    top: 0;
+    right: 25px;
+    transform: translateY(-50%) scale(0.96);
+}
+
+.grid-layout .job-listing .job-listing-company-logo {
+    max-width: 56px;
+    margin-right: 24px;
+    top: 1px;
+    flex: 0 0 56px;
+}
+
+/* Media Queries for Grid Layout */
+@media (max-width: 768px) {
+
+    .full-page-content-inner .grid-layout .job-listing,
+    .grid-layout .job-listing {
+        margin: 0 0 30px 0;
+        width: 100%;
+    }
+
+    .grid-layout,
+    .full-page-content-inner .grid-layout {
+        width: 100%;
+    }
+
+    .full-page-content-container .simplebar-content {
+        overflow-x: hidden !important;
+    }
+
+    .full-page-container.with-map .full-page-content-inner .grid-layout .job-listing {
+        width: 100%;
+    }
+}
+
+/* ---------------------------------- */
+/* Tasks - List Layout
+------------------------------------- */
+.task-listing {
+    border-radius: 4px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    margin-bottom: 30px;
+    background-color: #fff;
+    transition: 0.3s;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.task-listing:hover {
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.14);
+    transform: translateY(-4px);
+}
+
+.task-listing-details {
+    padding: 34px 38px;
+    flex: 1;
+}
+
+.task-listing .task-listing-description {
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-listing .task-listing-description p {
+    margin: 15px 0 0 0;
+    padding: 0;
+    color: #666;
+}
+
+.task-listing h3.task-listing-title a,
+.task-listing h3.task-listing-title {
+    font-size: 18px;
+    color: #333;
+    line-height: 28px;
+    cursor: pointer;
+    font-weight: 600;
+    padding-top: 2px;
+    transition: 0.3s;
+}
+
+.task-listing .task-icons {
+    list-style: none;
+    padding: 0;
+    margin: 3px 0 0 -3px;
+}
+
+.task-listing .task-icons li {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    margin-right: 10px;
+    color: #808080;
+}
+
+.task-listing .task-icons i {
+    color: #909090;
+    font-size: 18px;
+    position: relative;
+    top: 1px;
+}
+
+.task-listing .task-icons i.icon-material-outline-desktop-windows {
+    font-size: 19px;
+    top: 2px;
+}
+
+.task-listing-bid {
+    flex: 0 0 240px;
+    background-color: #f8f8f8;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.task-listing-bid-inner {
+    width: 100%;
+    padding: 35px;
+}
+
+.task-listing-bid-inner .button {
+    display: block;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(102, 103, 107, 0.15);
+    width: 100%;
+}
+
+.task-listing-bid-inner .button:hover {
+    box-shadow: 0 4px 12px rgba(102, 103, 107, 0.25);
+}
+
+.task-listing-bid .task-offers {
+    margin-bottom: 15px;
+    /*	text-align: center;*/
+}
+
+.task-listing-bid .task-offers strong {
+    display: block;
+    color: #333;
+    font-weight: 600;
+    line-height: 24px;
+}
+
+.task-listing-bid .task-offers span {
+    display: block;
+    color: #888;
+    line-height: 24px;
+}
+
+/* Task Tags */
+.task-tags {
+    display: block;
+    margin: 23px 0 3px 0;
+}
+
+.task-tags span {
+    transition: 0.3s;
+    font-size: 14.7px;
+    border-radius: 4px;
+    background-color: rgba(102, 103, 107, .07);
+    color: #66676b;
+    display: inline-block;
+    padding: 6px 15px;
+    margin: 2px 0;
+    line-height: 24px;
+}
+
+/* Compact List */
+.compact-list .task-listing {
+    border-radius: 0;
+    margin-bottom: 0;
+    box-shadow: none;
+}
+
+.compact-list .task-listing:hover {
+    transform: translateY(0);
+}
+
+.tasks-list-container.compact-list {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.tasks-list-container.compact-list .task-listing {
+    align-items: center;
+    justify-content: center;
+}
+
+.tasks-list-container.compact-list .task-listing:nth-child(2n) {
+    background-color: #fafafa;
+}
+
+.tasks-list-container.compact-list .task-listing-bid {
+    background-color: transparent;
+}
+
+.tasks-list-container.compact-list .task-listing:hover:before {
+    opacity: 1;
+}
+
+.tasks-list-container.compact-list .task-listing:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    display: block;
+    background: #66676b;
+    transition: 0.3s;
+    opacity: 0;
+}
+
+.tasks-list-container.compact-list .task-listing:last-of-type {
+    border-radius: 0 0 3px 3px;
+    overflow: hidden;
+}
+
+.tasks-list-container.compact-list .task-listing:first-of-type {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+}
+
+.tasks-list-container.compact-list .task-listing .task-listing-details {
+    padding-right: 0;
+}
+
+/* Section Styles */
+.section .task-listing-details,
+.section .task-listing-bid-inner {
+    padding: 27px 35px;
+}
+
+
+/* Media Queries for Tasks List */
+@media (max-width: 1200px) {
+    .task-listing-bid {
+        flex: 0 0 220px;
+    }
+}
+
+@media (min-width: 481px) and (max-width: 768px) {
+    .task-listing-bid {
+        flex: 1;
+        padding: 10px 0;
+    }
+
+    .task-listing {
+        flex-direction: column;
+    }
+
+    .task-listing-bid-inner {
+        display: flex;
+        margin: 20px 0 0 0;
+    }
+
+    .tasks-grid-layout .task-listing-bid-inner {
+        margin: 0;
+    }
+
+    .task-listing-bid-inner .task-offers {
+        flex: 1;
+    }
+
+    .task-listing-bid-inner .button {
+        height: 100%;
+        width: 30%;
+    }
+
+    .tasks-list-container.compact-list .task-listing .task-listing-details {
+        padding-right: 35px;
+        padding-bottom: 0;
+    }
+
+    .tasks-list-container.compact-list .task-listing .task-listing-bid {
+        padding-bottom: 25px;
+    }
+
+    .task-listing-bid-inner {
+        width: 100%;
+        padding: 0 35px;
+    }
+}
+
+/* Small Mobile Sizes */
+@media (max-width: 768px) {
+    .section .task-listing-details {
+        padding: 25px 30px;
+    }
+
+    .section .task-listing-bid-inner {
+        padding: 0 30px;
+    }
+}
+
+/* Small Mobile Sizes */
+@media (max-width: 480px) {
+
+    .task-listing-bid {
+        flex: 1;
+        padding: 30px 0;
+    }
+
+    .task-listing {
+        flex-direction: column;
+    }
+
+    .task-listing-bid-inner .task-offers {
+        flex: 1;
+    }
+
+    .task-listing-bid-inner .button {
+        height: 100%;
+        width: 100%;
+    }
+
+    .tasks-list-container.compact-list .task-listing .task-listing-details {
+        padding-right: 35px;
+        padding-bottom: 0;
+    }
+
+    .tasks-list-container.compact-list .task-listing .task-listing-bid {
+        padding-bottom: 35px;
+    }
+
+    .task-listing-bid-inner {
+        width: 100%;
+        padding: 0 35px;
+    }
+}
+
+
+/* ---------------------------------- */
+/* Tasks - Grid Layout
+------------------------------------- */
+.tasks-list-container.tasks-grid-layout {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% + 30px);
+}
+
+.tasks-list-container.tasks-grid-layout .task-listing {
+    display: flex;
+    justify-content: center;
+    margin: 0 30px 30px 0;
+    width: calc(100% * (1/2) - 30px);
+    flex-direction: column;
+}
+
+
+.tasks-list-container.tasks-grid-layout .task-listing-bid {
+    flex: 1;
+    padding: 0px 0;
+    display: block
+}
+
+.tasks-list-container.tasks-grid-layout .task-listing {
+    flex-direction: column;
+}
+
+.tasks-list-container.tasks-grid-layout .task-listing-bid-inner {
+    display: flex;
+    align-items: center;
+    padding: 18px 32px;
+}
+
+.tasks-list-container.tasks-grid-layout .task-listing-bid-inner .task-offers {
+    flex: 1;
+    position: relative;
+    top: 5px;
+}
+
+.tasks-list-container.tasks-grid-layout .task-listing-bid-inner .button {
+    height: 100%;
+    width: 45%;
+}
+
+.tasks-list-container.tasks-grid-layout .task-listing .task-listing-details {
+    display: flex;
+    align-items: center;
+    padding: 28px 32px;
+}
+
+/* Media Queries for Tasks List */
+@media (max-width: 1240px) {
+    .tasks-list-container.tasks-grid-layout .task-listing-bid-inner {
+        display: block;
+    }
+
+    .tasks-list-container.tasks-grid-layout .task-listing-bid {
+        padding: 20px 35px;
+        padding-bottom: 30px;
+    }
+
+    .tasks-list-container.tasks-grid-layout .task-listing-bid-inner {
+        padding: 0;
+    }
+
+    .tasks-list-container.tasks-grid-layout .task-listing {
+        flex-direction: column;
+    }
+
+    .tasks-list-container.tasks-grid-layout .task-listing-bid-inner .task-offers {
+        flex: 1;
+    }
+
+    .tasks-list-container.tasks-grid-layout .task-listing-bid-inner .button {
+        height: 100%;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .tasks-list-container.tasks-grid-layout {
+        width: 100%;
+    }
+
+    .tasks-list-container.tasks-grid-layout .task-listing {
+        margin: 0 0 30px 0;
+        width: 100%;
+    }
+
+    .tasks-list-container.compact-list .task-listing-bid,
+    .tasks-list-container.compact-list .task-listing-details {
+        width: 100%;
+    }
+
+}
+
+/* Full Page Media Queries */
+@media (max-width: 3860px) {
+    .full-page-content-inner .tasks-grid-layout .task-listing {
+        width: calc(100% * (1/4) - 30px);
+    }
+}
+
+@media (max-width: 2560px) {
+    .full-page-content-inner .tasks-grid-layout .task-listing {
+        width: calc(100% * (1/3) - 30px);
+    }
+}
+
+@media (max-width: 1600px) {
+    .full-page-content-inner .tasks-grid-layout .task-listing {
+        width: calc(100% * (1/2) - 30px);
+    }
+}
+
+@media (max-width: 1099px) {
+    .full-page-content-inner .tasks-grid-layout .task-listing {
+        width: calc(100% - 30px);
+    }
+}
+
+@media (max-width: 992px) {
+    .full-page-content-inner .tasks-grid-layout .task-listing {
+        width: calc(100%);
+    }
+}
+
+
+/* ---------------------------------- */
+/* Freelancers - Grid Layout
+------------------------------------- */
+.freelancers-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% + 30px);
+}
+
+.freelancer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 30px 30px 0;
+    width: calc(100% * (1/2) - 30px);
+    border-radius: 4px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+    background-color: #fff;
+    transition: 0.3s;
+    position: relative;
+    cursor: default;
+}
+
+.freelancer:hover {
+    box-shadow: 0 2px 18px rgba(0, 0, 0, 0.14);
+    transform: translateY(-4px);
+}
+
+.freelancer .bookmark-icon {
+    cursor: pointer;
+}
+
+.freelancer-overview {
+    text-align: center;
+    padding: 38px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.freelancer-overview-inner {
+    flex: 1;
+}
+
+.freelancer-overview .freelancer-avatar {
+    width: 110px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.freelancer-overview .freelancer-avatar img {
+    width: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.freelancer-overview .freelancer-avatar .verified-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.freelancer-name {
+    margin-top: 19px;
+}
+
+.freelancer-rating {
+    margin-top: 5px;
+    margin-bottom: -10px;
+}
+
+.freelancer-name h4,
+.freelancer-name h4 a {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+}
+
+.freelancer-name img.flag {
+    height: 15px;
+    border-radius: 3px;
+    position: relative;
+    top: -1px;
+    display: inline-block;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    margin-left: 4px;
+    cursor: default
+}
+
+.freelancer-name span {
+    color: #888;
+}
+
+.freelancer-details {
+    padding: 35px;
+    background-color: #fafafa;
+    flex-grow: 0;
+}
+
+.freelancers-grid-layout .freelancer-details {
+    border-radius: 0 0 4px 4px;
+}
+
+.freelancers-grid-layout .freelancer-details a.button {
+    display: block;
+    text-align: center;
+    width: 100% !important;
+    transition: 0.3s;
+    box-shadow: 0 4px 12px rgba(102, 103, 107, 0.1);
+}
+
+.freelancer-details a.button:hover {
+    box-shadow: 0 4px 12px rgba(102, 103, 107, 0.2);
+}
+
+.freelancer-details-list ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 5px 0;
+    font-size: 14.7px;
+}
+
+.freelancer-details-list ul li {
+    display: inline-block;
+    margin-right: 25px;
+    line-height: 23px;
+    color: #808080;
+    margin-bottom: 15px;
+}
+
+.freelancer-details-list ul li:last-child {
+    margin-right: 0;
+}
+
+.freelancer-details-list ul li strong {
+    display: block;
+    color: #333;
+}
+
+.freelancer-details-list ul li strong i {
+    position: relative;
+    top: 1px;
+    margin-right: -1px;
+    margin-left: -2px;
+}
+
+
+/* Detail Item */
+.freelancer-detail-item {
+    display: inline-block;
+    margin: 2px 10px 5px 0;
+}
+
+.freelancer-detail-item a,
+.freelancer-detail-item {
+    color: #888;
+}
+
+.freelancer-detail-item a:hover {
+    color: #66676b;
+}
+
+.freelancer-detail-item i {
+    position: relative;
+    top: 2px;
+    margin-right: 3px;
+}
+
+
+/* Media Queiers for Freelancers List */
+@media (max-width: 1366px) {
+    .freelances-grid-layout .freelancer-overview .freelancer-avatar {
+        width: 100px;
+    }
+}
+
+@media (max-width: 768px) {
+    .freelances-grid-layout.freelancers-container {
+        width: 100%;
+    }
+
+    .freelances-grid-layout .freelancer {
+        margin: 0 0 30px 0;
+        width: 100%;
+    }
+
+    .freelancers-container.freelancers-grid-layout {
+        width: 100%;
+    }
+
+    .freelancers-container.freelancers-grid-layout .freelancer {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* Full Page Media Queiers for Freelancers List */
+@media (max-width: 2560px) {
+    .full-page-container .freelancer {
+        width: calc(100% * (1/4) - 30px);
+    }
+}
+
+@media (max-width: 1920px) {
+    .full-page-container .freelancer {
+        width: calc(100% * (1/3) - 30px);
+    }
+}
+
+@media (max-width: 1366px) {
+    .full-page-container .freelancer {
+        width: calc(100% * (1/2) - 30px);
+    }
+}
+
+@media (max-width: 1099px) {
+    .full-page-container .freelancers-container {
+        width: 100%;
+    }
+
+    .full-page-container .freelancer {
+        width: 100%;
+        margin-right: 0;
+    }
+}
+
+/* ---------------------------------- */
+/* Freelancers - List Layout
+------------------------------------- */
+.freelancers-container.freelancers-list-layout {
+    width: 100%;
+}
+
+.freelancers-list-layout .freelancer {
+    margin: 0 0 30px 0;
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.freelancers-list-layout .freelancer-overview {
+    text-align: left;
+    padding: 45px 40px;
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.freelancers-list-layout .freelancer-overview-inner {
+    flex: 1;
+    display: flex;
+    align-items: center;
+}
+
+.freelancers-list-layout .freelancer-details {
+    padding: 45px 40px 45px 0;
+    background-color: transparent;
+    flex: 0 0 360px;
+}
+
+.freelancers-list-layout .freelancer-overview .freelancer-avatar {
+    width: 100px;
+    margin: 0;
+}
+
+.freelancers-list-layout .freelancer-overview .freelancer-name {
+    text-align: left;
+    margin: 0 0 0 30px;
+}
+
+.freelancers-list-layout .freelancer-details a.button {
+    display: block;
+    text-align: center;
+    min-width: 50%;
+    max-width: 100%;
+    width: auto !important;
+    transition: 0.3s;
+    float: right;
+    box-shadow: 0 4px 12px rgba(102, 103, 107, 0.15);
+}
+
+.freelancers-list-layout .freelancer-details a.button:hover {
+    box-shadow: 0 4px 12px rgba(102, 103, 107, 0.25);
+}
+
+.freelancers-list-layout .bookmark-icon {
+    display: none;
+}
+
+.freelancers-list-layout .freelancer-details-list ul {
+    float: right;
+    display: block
+}
+
+.freelancers-list-layout .freelancer-details-list ul li {
+    margin-left: 25px;
+    margin-right: 0;
+    float: right;
+}
+
+/* Freelancers Compact List */
+.compact-list.freelancers-list-layout .freelancer {
+    border-radius: 0;
+    margin-bottom: 0;
+    box-shadow: none;
+}
+
+.compact-list.freelancers-list-layout .freelancer:hover {
+    transform: translateY(0);
+}
+
+.compact-list.freelancers-list-layout {
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.compact-list.freelancers-list-layout .freelancer:nth-child(2n) {
+    background-color: #fafafa;
+}
+
+.compact-list.freelancers-list-layout .freelancer:hover:before {
+    opacity: 1;
+}
+
+.compact-list.freelancers-list-layout .freelancer:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    display: block;
+    background: #66676b;
+    transition: 0.3s;
+    opacity: 0;
+}
+
+.compact-list.freelancers-list-layout .freelancer:last-of-type {
+    border-radius: 0 0 3px 3px;
+    overflow: hidden;
+}
+
+.compact-list.freelancers-list-layout .freelancer:first-of-type {
+    border-radius: 3px 3px 0 0;
+    overflow: hidden;
+}
+
+
+/* Media Queiers for Freelancers List Layout */
+@media (max-width: 1366px) {
+    .freelancers-list-layout .freelancer-overview .freelancer-avatar {
+        width: 100px;
+    }
+}
+
+@media (max-width: 1240px) {
+
+    .freelancers-list-layout .freelancer {
+        flex-direction: column;
+    }
+
+    .freelancers-list-layout .freelancer-details {
+        flex: 1;
+        padding: 35px 40px;
+        background-color: #fafafa;
+    }
+
+    .freelancers-list-layout .freelancer-details-list ul {
+        float: left;
+    }
+
+    .freelancers-list-layout .freelancer-details-list ul li {
+        margin-left: 0;
+        margin-right: 25px;
+        float: left;
+    }
+
+    .freelancers-list-layout .freelancer-details a.button {
+        float: none;
+        width: 100% !important;
+    }
+
+    .freelancers-list-layout .freelancer-overview .freelancer-avatar {
+        width: 90px;
+    }
+
+    /* Compact Layout */
+    .compact-list.freelancers-list-layout .freelancer-details {
+        background-color: transparent;
+        padding-top: 0;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .freelancers-list-layout .freelancer-overview,
+    .freelancers-list-layout .freelancer-details {
+        padding: 30px;
+    }
+
+    .freelancers-list-layout .freelancer-overview .freelancer-avatar {
+        width: 80px;
+    }
+
+    .freelancers-list-layout .star-rating:before {
+        display: block;
+        float: none;
+        text-align: center;
+        max-width: 40px;
+        margin-bottom: 4px;
+    }
+}
+
+/* ---------------------------------- */
+/* Browse Companies
+------------------------------------- */
+
+/* Letters List */
+.letters-list {
+    width: 100%;
+    text-align: center;
+    background-color: #f4f4f4;
+    border-radius: 4px;
+    padding: 20px;
+}
+
+.letters-list a {
+    display: inline-block;
+    font-size: 18px;
+    color: #333;
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    background-color: transparent;
+    border-radius: 4px;
+    transition: 0.3s;
+    margin: 0 -2px;
+}
+
+.letters-list a.current {
+    margin-right: 0;
+    color: #fff;
+    font-weight: 600;
+    background-color: #66676b;
+    box-shadow: 0 2px 8px rgba(102, 103, 107, 0.25);
+}
+
+.letters-list a:hover {
+    color: #fff;
+    background-color: #333;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Companies List */
+.companies-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    width: calc(100% + 30px);
+}
+
+.companies-list .company {
+    width: calc(33.3% - 30px);
+    margin: 0 30px 30px 0;
+    flex-grow: 1;
+    text-align: center;
+    /*border-right: 1px solid #e0e0e0;
+	border-bottom: 1px solid #e0e0e0;*/
+    padding: 50px 0;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.companies-list .company:hover {
+    transform: translateY(-3px);
+
+}
+
+@media (min-width: 993px) {
+    .companies-list .company:nth-child(3n) {
+        border-right: none;
+    }
+
+    .companies-list .company:nth-last-child(-n+3) {
+        border-bottom: none;
+    }
+}
+
+.companies-list .company img {
+    max-width: 120px;
+    max-height: 60px;
+    display: inline-block;
+    margin: 0;
+    transform: translate3d(0, 0, 0);
+}
+
+.companies-list .company .company-logo {
+    height: 60px;
+    display: flex;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.companies-list .company h4 {
+    color: #333;
+    font-size: 18px;
+    font-weight: 600;
+    transition: 0.3s;
+    display: block;
+}
+
+.companies-list .company span {
+    color: #888;
+}
+
+.companies-list .company .star-rating {
+    margin-top: 5px;
+}
+
+.not-rated,
+.company-not-rated {
+    border-radius: 4px;
+    background-color: #f0f0f0;
+    color: #888;
+    font-size: 14px;
+    line-height: 15px;
+    font-weight: 600;
+    padding: 7px 9px;
+    display: inline-block;
+    margin-top: 8px;
+    text-align: center;
+}
+
+/* Media Queries for Companies List */
+@media (max-width: 1366px) {
+    .letters-list a {
+        font-size: 16px;
+        height: 36px;
+        width: 36px;
+        line-height: 36px;
+        margin: 0 -1px;
+    }
+}
+
+@media (max-width: 992px) {
+    .companies-list .company {
+        width: calc(50% - 30px);
+    }
+}
+
+@media (max-width: 768px) {
+    .companies-list .company {
+        width: 100%;
+    }
+}

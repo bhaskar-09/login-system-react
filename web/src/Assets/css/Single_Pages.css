@@ -1,0 +1,619 @@
+/* -------------------------------------------------------------- */
+/*  06. Single Pages
+----------------------------------------------------------------- */
+
+/* Boxed List for Single Page 
+------------------------------------- */
+.boxed-list {
+    margin-top: 10px;
+    display: block;
+}
+
+.boxed-list-headline {
+    background-color: #f2f2f2;
+    border-radius: 4px;
+    padding: 20px 35px;
+}
+
+.boxed-list-headline h3 {
+    font-size: 18px;
+}
+
+.boxed-list-headline h3 span {
+    color: #888;
+}
+
+.boxed-list-headline h3 i {
+    font-size: 18px;
+    color: #66676b;
+    font-size: 24px;
+    position: relative;
+    top: 3px;
+    line-height: 0;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.boxed-list ul.boxed-list-ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.boxed-list ul.boxed-list-ul>li {
+    display: block;
+    background-color: transparent;
+    padding: 35px;
+    border-radius: 4px;
+}
+
+.boxed-list ul.boxed-list-ul>li:nth-child(2n) {
+    background-color: #fafafa;
+}
+
+/* Fields UL */
+.fields-ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.fields-ul>li {
+    display: block;
+    background-color: transparent;
+    padding: 30px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #e4e4e4
+}
+
+
+/* Boxed List Item
+------------------------------------- */
+.boxed-list-item {
+    display: flex;
+}
+
+.boxed-list-item .item-image {
+    flex: 0 0 60px;
+    height: 60px;
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    margin-right: 25px;
+    position: relative;
+    top: -2px;
+    display: flex;
+    background-color: #fff;
+}
+
+/* IE 11 Fixes */
+@media screen and (-ms-high-contrast: active),
+screen and (-ms-high-contrast: none) {
+    .boxed-list-item .item-image {
+        max-width: 60px;
+    }
+
+    .boxed-list-item .item-image img {
+        width: 100%;
+    }
+}
+
+/* IE 11 Fixes - End */
+
+.boxed-list-item .item-image img {
+    height: auto;
+    align-self: center;
+}
+
+.boxed-list-item .item-content h4 a,
+.boxed-list-item .item-content h4 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.boxed-list-item .item-content h4 span {
+    font-size: 16px;
+    color: #808080;
+    display: block;
+    font-weight: 500;
+}
+
+.boxed-list-item .item-details {
+    display: flex;
+    margin-top: 5px;
+}
+
+.boxed-list-item .item-details .star-rating {
+    top: -2px;
+    position: relative;
+    margin-right: 15px;
+}
+
+.boxed-list-item .item-details .detail-item {
+    margin-right: 15px;
+    color: #808080;
+}
+
+.boxed-list-item .item-details .detail-item a {
+    color: #808080;
+}
+
+.boxed-list-item .item-details .detail-item a:hover {
+    color: #66676b;
+}
+
+.boxed-list-item .item-details .detail-item i {
+    margin-right: 3px;
+    position: relative;
+    top: 0;
+}
+
+.boxed-list-item .item-description p {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.boxed-list-item .item-description {
+    margin-top: 15px;
+}
+
+
+/* Bid 
+------------------------------------- */
+.bid {
+    display: flex;
+    width: 100%;
+}
+
+.bid .bids-content {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.bid .bids-bid {
+    align-items: center;
+    display: flex;
+}
+
+.bid .bids-avatar {
+    align-self: center;
+}
+
+.bid .freelancer-name {
+    margin-top: 0;
+}
+
+.bid .freelancer-avatar {
+    width: 80px;
+    margin: 0 auto;
+    position: relative;
+    margin-right: 30px;
+}
+
+.bid .star-rating {
+    margin-top: 3px;
+    display: block
+}
+
+.bid .freelancer-avatar img {
+    width: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.bid .freelancer-avatar .verified-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* Bid Rate */
+.bid-rate {
+    text-align: center;
+    font-size: 14px;
+    background: #f4f4f4;
+    color: #888;
+    border-radius: 4px;
+    padding: 8px 12px;
+}
+
+.boxed-list ul.boxed-list-ul>li:nth-child(2n) .bid-rate {
+    background: #f2f2f2;
+}
+
+.bid-rate .rate {
+    color: #333;
+    font-weight: 600;
+    text-align: center;
+    line-height: 20px;
+    border-radius: 4px;
+    padding: 5px 10px;
+    padding-bottom: 0;
+    font-size: 16px;
+}
+
+.bid-rate span {
+    display: block;
+    margin-top: -2px;
+}
+
+@media (max-width: 768px) {
+    .bid .freelancer-avatar {
+        width: 70px;
+        margin: 0 0 15px 0;
+    }
+
+    .bid {
+        display: block;
+    }
+
+    .bids-bid {
+        margin-top: 15px;
+    }
+
+    .bid-rate {
+        width: 100%;
+    }
+}
+
+
+/* Single Job
+------------------------------------- */
+.job-overview {
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.job-overview .job-overview-headline {
+    color: #333;
+    font-size: 20px;
+    padding: 20px 35px;
+    background-color: #f0f0f0;
+    color: #333;
+    position: relative;
+    border-radius: 4px 4px 0 0;
+}
+
+.job-overview .job-overview-inner {
+    padding: 35px;
+}
+
+.job-overview .job-overview-inner ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+/* List Item */
+.job-overview .job-overview-inner ul li {
+    position: relative;
+    display: block;
+    font-size: 16px;
+    padding-left: 38px;
+    margin-bottom: 25px;
+}
+
+.job-overview .job-overview-inner ul li:last-child {
+    margin-bottom: 0;
+}
+
+.job-overview .job-overview-inner ul li span {
+    font-weight: 600;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: block;
+}
+
+.job-overview .job-overview-inner ul li h5 {
+    font-weight: 500;
+    color: #666;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    line-height: 20px;
+}
+
+.job-overview .job-overview-inner ul li i {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 24px;
+    color: #66676b;
+}
+
+/* Apply Now Button */
+a.apply-now-button {
+    background-color: #66676b;
+    color: #fff;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 4px;
+    padding: 14px 20px;
+    margin-bottom: 35px;
+    box-shadow: 0 2px 8px rgba(102, 103, 107, 0.15);
+    transition: 0.3s;
+    display: block;
+}
+
+a.apply-now-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 2px 8px rgba(102, 103, 107, 0.35);
+}
+
+a.apply-now-button i {
+    font-size: 22px;
+    position: relative;
+    line-height: 0;
+    top: 3px;
+    margin-left: 5px;
+}
+
+/* Single Job Map */
+#single-job-map-container {
+    position: relative;
+}
+
+#single-job-map-container #singleListingMap {
+    position: relative;
+    height: 340px;
+    border-radius: 4px;
+}
+
+
+/* Single Freelancer Profile
+------------------------------------- */
+
+/* Freelancer Socials*/
+.freelancer-socials ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    cursor: default;
+    margin: 0 0 -5px -8px;
+}
+
+.freelancer-socials ul li {
+    display: inline-block;
+    font-size: 24px;
+}
+
+.freelancer-socials ul li a {
+    color: #b9b9b9;
+    padding: 0 8px;
+}
+
+.freelancer-socials ul li a:hover {
+    color: #333;
+}
+
+/* Attachments */
+.attachments-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: calc(100% + 20px);
+    margin-bottom: -30px;
+}
+
+.attachment-box {
+    display: flex;
+    margin: 0 20px 20px 0;
+    background-color: #f4f4f4;
+    border-radius: 4px 0px 4px 4px;
+    font-weight: 600;
+    padding: 15px 20px;
+    padding-bottom: 45px;
+    padding-right: 25px;
+    line-height: 24px;
+    flex-direction: column;
+    color: #666;
+    position: relative;
+    transition: 0.3s;
+    flex: 0 1 calc(50% - 21px);
+    cursor: default;
+    position: relative;
+}
+
+.single-page-section .attachment-box {
+    flex: 0 1 calc(33% - 20px);
+}
+
+.single-page-section .attachments-container {
+    margin-bottom: -20px;
+}
+
+a.attachment-box {
+    cursor: pointer;
+}
+
+.attachment-box:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-width: 0 20px 20px 0;
+    border-style: solid;
+    border-color: rgba(0, 0, 0, 0.15) #fff;
+    transition: 0.3s;
+    border-radius: 0 0 0 4px;
+}
+
+a.attachment-box:hover {
+    background-color: #66676b;
+    color: #fff;
+}
+
+a.attachment-box:hover:before {
+    border-color: rgba(0, 0, 0, 0.25) #fff;
+}
+
+.attachment-box span {
+    font-size: 14px;
+    line-height: 20px;
+    display: inline-block;
+    flex: auto;
+}
+
+.attachment-box i {
+    display: block;
+    font-style: normal;
+    font-size: 14px;
+    color: #999;
+    font-weight: 500;
+    margin-top: 10px;
+    position: absolute;
+    bottom: 10px;
+    transition: 0.3s;
+}
+
+a.attachment-box:hover i {
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Remove Attachment Button */
+.attachment-box .remove-attachment {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    color: #fff;
+    background-color: #dc3139;
+    box-shadow: 0 3px 8px rgba(234, 65, 81, 0.15);
+    height: 28px;
+    width: 28px;
+    line-height: 28px;
+    border-radius: 3px;
+    font-weight: 500;
+    font-size: 14px;
+    transition: 0.3s;
+    opacity: 0;
+    transform: translateY(3px);
+}
+
+.attachment-box .remove-attachment:before {
+    content: "\e9e4";
+    font-family: "Feather-Icons";
+}
+
+.attachment-box:hover .remove-attachment {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Profile Overview */
+.profile-overview {
+    display: flex;
+    line-height: 22px;
+    align-items: center;
+    margin-bottom: 25px;
+    width: calc(100% + 25px);
+}
+
+.profile-overview .overview-item {
+    flex: 1;
+    border-right: 1px solid #e0e0e0;
+    margin-right: 20px;
+    padding-right: 20px;
+    flex-grow: 1;
+}
+
+.profile-overview .overview-item:last-child {
+    border-right: 0;
+    padding-right: 0;
+}
+
+.profile-overview .overview-item strong {
+    display: block;
+    font-weight: 600;
+    color: #333;
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.profile-overview .overview-item span {
+    color: #808080;
+}
+
+
+/* Freelancer Indicators */
+.freelancer-indicators {
+    display: flex;
+    flex-wrap: wrap;
+    width: calc(100% + 30px);
+    line-height: 24px;
+    margin-bottom: -20px;
+}
+
+.freelancer-indicators .indicator {
+    width: calc(50% - 31px);
+    margin-right: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.freelancer-indicators .indicator strong {
+    color: #333;
+    font-weight: 600;
+}
+
+.freelancer-indicators .indicator-bar span,
+.freelancer-indicators .indicator-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    position: relative;
+    margin: 10px 0;
+    transition: 1s;
+}
+
+.freelancer-indicators .indicator-bar span {
+    width: 0;
+    background-color: #66676b;
+    position: absolute;
+    top: 0;
+    margin: 0;
+}
+
+
+/* Media Queriers */
+@media (max-width: 1240px) {
+
+    .profile-overview,
+    .profile-overview .overview-item {
+        display: block;
+        width: 100%;
+    }
+
+    .profile-overview .overview-item {
+        border-right: 0;
+        border-bottom: 1px solid #e0e0e0;
+        padding: 15px 0;
+        margin: 0;
+    }
+
+    .profile-overview .overview-item:last-child {
+        border-right: none;
+        border-bottom: none
+    }
+}
+
+@media (max-width: 768px) {
+
+    .boxed-list-item .item-details,
+    .attachments-container,
+    .attachments-container .attachment-box,
+    .freelancer-indicators,
+    .freelancer-indicators .indicator {
+        display: block;
+        width: 100%;
+    }
+
+    .boxed-list-item .item-image {
+        display: none;
+    }
+}
