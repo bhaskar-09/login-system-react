@@ -52,6 +52,30 @@ function HeaderLayout() {
                                             <li> <Link to="/login">Login</Link> </li>
                                             <li> <Link to="/register">Registration</Link> </li>
                                             <li> <Link to="/profile">Profile</Link> </li>
+                                            <li>
+                                                <Link to="/404">404</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/">Dashboard</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/add-posts">Add Posts</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/chat">Chat</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/add-posts">Add Posts</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/add-posts">Add Posts</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/add-posts">Add Posts</Link>
+                                            </li>
+                                            <li>
+                                                <Link to="/add-posts">Add Posts</Link>
+                                            </li>
                                         </ul>
                                     </li>
 

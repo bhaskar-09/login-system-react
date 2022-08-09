@@ -9,10 +9,9 @@ import ProfilePage from './Component/Profile/Profile';
 
 
 
-import NotFoundComponent from "./Components/Error/NotFoundComponent";
-import DashboardComponent from "./Components/Dashboard/DashboardComponent";
-import AddPostComponent from "./Components/Posts/AddPostComponent";
-import ChatComponent from "./Components/Chat/ChatComponent";
+import NotFoundComponent from "./Component/Error/NotFoundComponent";
+import AddPostComponent from "./Component/Posts/AddPostComponent";
+import ChatComponent from "./Component/Chat/ChatComponent";
 
 
 function App() {
@@ -27,7 +26,6 @@ function App() {
 
 
 					<Route path="404" element={<NotFoundComponent />} />
-					<Route path="/" element={<DashboardComponent />} />
 					<Route path="add-posts" element={<AddPostComponent />} />
 					<Route path="chat" element={<ChatComponent />} />
 
