@@ -14,9 +14,12 @@ import AddPostComponent from "./Component/Posts/AddPostComponent";
 import ChatComponent from "./Component/Chat/ChatComponent";
 
 
+import HeaderLayout from "./Component/Comon/Header";
+
 function App() {
 	return (
 		<div className="wrapper">
+			<HeaderLayout></HeaderLayout>
 			<Routes>
 				<Route path="login" element={<LoginPage />} />
 				<Route path="register" element={<RegisterPage />} />
