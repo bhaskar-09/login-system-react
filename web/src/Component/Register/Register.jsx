@@ -1,7 +1,16 @@
+import { useRef } from 'react';
 import { Link } from "react-router-dom";
 
 
-function RegisterPage(params) {
+const RegisterPage = () => {
+    let emailInputRef = useRef();
+    let passwordInputRef = useRef();
+    let repasswordInputRef = useRef();
+
+
+    const submitHandler = (event) => {
+        console.log("Submit");
+    };
     return (
         <>
             <div id="titlebar" className="gradient">
@@ -34,24 +43,24 @@ function RegisterPage(params) {
                             </div>
 
                             {/* Form */}
-                            <form method="post" id="register-account-form">
+                            <form method="post" id="register-account-form" onSubmit={submitHandler}>
                                 <div className="input-with-icon-left">
                                     <i className="icon-material-baseline-mail-outline"></i>
                                     <input type="text" className="input-text with-border" name="emailaddress-register"
-                                        id="emailaddress-register" placeholder="Email Address" required />
+                                        id="emailaddress-register" placeholder="Email Address" required ref={emailInputRef} />
                                 </div>
 
                                 <div className="input-with-icon-left" title="Should be at least 8 characters long"
                                     data-tippy-placement="bottom">
                                     <i className="icon-material-outline-lock"></i>
                                     <input type="password" className="input-text with-border" name="password-register"
-                                        id="password-register" placeholder="Password" required />
+                                        id="password-register" placeholder="Password" required ref={passwordInputRef} />
                                 </div>
 
                                 <div className="input-with-icon-left">
                                     <i className="icon-material-outline-lock"></i>
                                     <input type="password" className="input-text with-border" name="password-repeat-register"
-                                        id="password-repeat-register" placeholder="Repeat Password" required />
+                                        id="password-repeat-register" placeholder="Repeat Password" required ref={repasswordInputRef} />
                                 </div>
 
                                 {/* Button */}
