@@ -1,0 +1,124 @@
+{
+	"info": {
+		"_postman_id": "d1ea2693-5f87-4dfc-9082-e0378800df1b",
+		"name": "API Route",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5835867"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"TEST1\",\r\n    \"email\": \"test111@test.com\",\r\n    \"password\": \"password\",\r\n    \"password_confirmation\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.dev01.localhost/auth/register",
+					"protocol": "http",
+					"host": [
+						"api",
+						"dev01",
+						"localhost"
+					],
+					"path": [
+						"auth",
+						"register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"test111@test.com\",\r\n    \"password\": \"password\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://api.dev01.localhost/auth/login",
+					"protocol": "http",
+					"host": [
+						"api",
+						"dev01",
+						"localhost"
+					],
+					"path": [
+						"auth",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "View Profile",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDViMzdmNzlkMmUyNjViMjljNjBiMGIwNjA3YzYzNTE1YzRjMjY1NDY4NDI1ODMyNmQ5ZGJkMWU1YzU4YzRkYTA5ODU0ZjBmMjZiNGZmOGUiLCJpYXQiOjE2NTgyMjk3MTUuMjQwNTIyLCJuYmYiOjE2NTgyMjk3MTUuMjQwNTI5LCJleHAiOjE2ODk3NjU3MTUuMjMxMjY5LCJzdWIiOiI1Iiwic2NvcGVzIjpbXX0.nfSYope9YaSd5Mj-u5hsj2CN2XmYTC5pidnWrItKU7A1Uz6f0Z9owv4_ul7cFEDJa2WLIhfM6VhhYUls-0k9hYX7RYyrUPn7_wKQexU9ImG0UgdCOshEz5Rqz0Q-tAHJ7G03GhVyK5E7pjg-oeRTGmphBZ63zVw18bbIO8Mb2uCYEc3CatvG-mqQ2X0-oaN1KhRaquNwrno1-mrXHcCH_anmi8GtNpde4IRbPshzn_TZeAA4Fe1UwfCftvtq8kooItWJ7t9HZqS8kKRgN8a8uAiCS4HyHIV_W1yhkUIcTzAOl2PwFjNJs7R3ZteYf8cmLu00ZZQIayHXJBbGSfpuYnANgaF8ZYPMsWK4bg33tiHehULx97Zh-K1ykQxMpYyWQumiB5V770S3VfSdVb_a9I-tE25St_4UXrn9N2NQGmBnvKcGZPpfhgKMKbfkyMo6BIYG1yoIE7QJllvhplj4oYGOarNW-SI6SZJVH5zV-6h1abIdszLKZQez4ngfrvufYFW437M1rCBZZ14sMfUS8I2aNwdncvdnuBBFxFd-qyiTxB3UfCzpTxtfLZGQdNU5EY-kz8f6T-hZVubDq8zl8GmAXzRZdAMqzGulxjDS6uV4H3X0ClriAm-x-bJ3_oz_hfR_YQIBpDO10L-jfRSRx1ohhGvyQ1Huav9QkbI-Ncg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://api.dev01.localhost/users/view-profile",
+					"protocol": "http",
+					"host": [
+						"api",
+						"dev01",
+						"localhost"
+					],
+					"path": [
+						"users",
+						"view-profile"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Log Out",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiZDViMzdmNzlkMmUyNjViMjljNjBiMGIwNjA3YzYzNTE1YzRjMjY1NDY4NDI1ODMyNmQ5ZGJkMWU1YzU4YzRkYTA5ODU0ZjBmMjZiNGZmOGUiLCJpYXQiOjE2NTgyMjk3MTUuMjQwNTIyLCJuYmYiOjE2NTgyMjk3MTUuMjQwNTI5LCJleHAiOjE2ODk3NjU3MTUuMjMxMjY5LCJzdWIiOiI1Iiwic2NvcGVzIjpbXX0.nfSYope9YaSd5Mj-u5hsj2CN2XmYTC5pidnWrItKU7A1Uz6f0Z9owv4_ul7cFEDJa2WLIhfM6VhhYUls-0k9hYX7RYyrUPn7_wKQexU9ImG0UgdCOshEz5Rqz0Q-tAHJ7G03GhVyK5E7pjg-oeRTGmphBZ63zVw18bbIO8Mb2uCYEc3CatvG-mqQ2X0-oaN1KhRaquNwrno1-mrXHcCH_anmi8GtNpde4IRbPshzn_TZeAA4Fe1UwfCftvtq8kooItWJ7t9HZqS8kKRgN8a8uAiCS4HyHIV_W1yhkUIcTzAOl2PwFjNJs7R3ZteYf8cmLu00ZZQIayHXJBbGSfpuYnANgaF8ZYPMsWK4bg33tiHehULx97Zh-K1ykQxMpYyWQumiB5V770S3VfSdVb_a9I-tE25St_4UXrn9N2NQGmBnvKcGZPpfhgKMKbfkyMo6BIYG1yoIE7QJllvhplj4oYGOarNW-SI6SZJVH5zV-6h1abIdszLKZQez4ngfrvufYFW437M1rCBZZ14sMfUS8I2aNwdncvdnuBBFxFd-qyiTxB3UfCzpTxtfLZGQdNU5EY-kz8f6T-hZVubDq8zl8GmAXzRZdAMqzGulxjDS6uV4H3X0ClriAm-x-bJ3_oz_hfR_YQIBpDO10L-jfRSRx1ohhGvyQ1Huav9QkbI-Ncg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://api.dev01.localhost/auth/logout",
+					"protocol": "http",
+					"host": [
+						"api",
+						"dev01",
+						"localhost"
+					],
+					"path": [
+						"auth",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
