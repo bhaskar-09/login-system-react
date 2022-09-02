@@ -2,13 +2,17 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "../../Lib/Axios.js";
 
+
 function RegisterPage() {
+
+
 	const {
 		register,
 		handleSubmit,
 		getValues,
 		formState: { errors },
 	} = useForm({ mode: "onInput" });
+
 	const onFormSubmit = async (data) => {
 		try {
 			const response = await axios.post('/auth/register', data);
@@ -20,13 +24,14 @@ function RegisterPage() {
 	};
 
 
+
 	return (
 		<>
 			<div id="titlebar" className="gradient">
 				<div className="container">
 					<div className="row">
 						<div className="col-md-12">
-							<h2>Register</h2>
+							<h2>Register </h2>
 
 							{/* Breadcrumbs */}
 							<nav id="breadcrumbs" className="dark">
