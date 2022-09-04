@@ -1,6 +1,7 @@
 import "./Assets/css/style.css";
 import { Routes, Route } from "react-router-dom";
-import { useSelector } from "react-redux";
+
+import { AxiosLoader } from "./Lib/Axios";
 import LoginPage from "./Component/Login/Login";
 import RegisterPage from "./Component/Register/Register";
 
@@ -15,25 +16,25 @@ import HeaderLayout from "./Component/Comon/Header";
 import LoaderComponent from "./Component/Comon/Loader";
 
 function App() {
-	const showLoader = useSelector((state) => state.ui.IsLoader);
-	return (
-		<div className="wrapper">
-			{showLoader && <LoaderComponent />}
-			<HeaderLayout></HeaderLayout>
-			<Routes>
-				<Route path="login" element={<LoginPage />} />
-				<Route path="register" element={<RegisterPage />} />
+    const showLoader = AxiosLoader();
+    return (
+        <div className="wrapper">
+            {showLoader && <LoaderComponent />}
+            <HeaderLayout></HeaderLayout>
+            <Routes>
+                <Route path="login" element={<LoginPage />} />
+                <Route path="register" element={<RegisterPage />} />
 
-				<Route path="/" element={<DashboardLayout />}>
-					<Route path="profile" element={<ProfilePage />} />
+                <Route path="/" element={<DashboardLayout />}>
+                    <Route path="profile" element={<ProfilePage />} />
 
-					<Route path="404" element={<NotFoundComponent />} />
-					<Route path="add-posts" element={<AddPostComponent />} />
-					<Route path="chat" element={<ChatComponent />} />
-				</Route>
-			</Routes>
-		</div>
-	);
+                    <Route path="404" element={<NotFoundComponent />} />
+                    <Route path="add-posts" element={<AddPostComponent />} />
+                    <Route path="chat" element={<ChatComponent />} />
+                </Route>
+            </Routes>
+        </div>
+    );
 }
 
 export default App;

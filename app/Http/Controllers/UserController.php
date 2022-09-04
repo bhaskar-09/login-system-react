@@ -20,15 +20,23 @@ class UserController extends Controller
 
 
     public function register(Request $request){
+
         $validator = Validator::make($request->all(),[
             'name' => 'required|string',
             'email' => 'required|string|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
+        $errorArr = $validator->messages()->toArray();
+        $errMsg = "";
+        foreach ($errorArr as $type => $errors) {
+            foreach ($errors as $key => $error) {
+                $errMsg .= ucwords($type .": ". $error);
+            }
+        }
         if($validator->fails()){
             return response()->json([
                     'success' => false,
-                    'message' => $validator->messages()->toArray()
+                    'message' => $errMsg
             ], 500);
         }
         $data = [
@@ -54,7 +62,7 @@ class UserController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => $validator->messages()->toArray()
-            ], 500);
+            ], 202);
         }
         $credentials = $request->only(["email","password"]);
         $user = User::where('email',$credentials['email'])->first();
@@ -65,7 +73,7 @@ class UserController extends Controller
                 "success" => false,
                 "message" => $responseMessage,
                 "error" => $responseMessage
-                ], 422);
+                ], 202);
             }
             $accessToken = auth()->user()->createToken('authToken')->accessToken;
             $responseMessage = "Login Successful";
@@ -77,7 +85,7 @@ class UserController extends Controller
                 "success" => false,
                 "message" => $responseMessage,
                 "error" => $responseMessage
-            ], 422);
+            ], 202);
         }
     }
 
