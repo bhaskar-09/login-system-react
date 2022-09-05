@@ -1,5 +1,6 @@
 import "./Assets/css/style.css";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
+import { useSelector } from 'react-redux';
 
 import { AxiosLoader } from "./Lib/Axios";
 import LoginPage from "./Component/Login/Login";
@@ -17,6 +18,21 @@ import LoaderComponent from "./Component/Comon/Loader";
 
 function App() {
     const showLoader = AxiosLoader();
+    const isLogedin = useSelector((state) => state.auth.IsLogedin);
+    const location = useLocation();
+    console.log(location);
+    const nonAuthPath = [
+        '/login', '/register'
+    ]
+    if (!nonAuthPath.includes(location.pathname)) {
+        console.log("Check Auth");
+
+        if (!isLogedin) {
+            console.log("Not Login");
+        } else {
+            console.log("Loged in");
+        }
+    }
     return (
         <div className="wrapper">
             {showLoader && <LoaderComponent />}
@@ -32,6 +48,7 @@ function App() {
                     <Route path="add-posts" element={<AddPostComponent />} />
                     <Route path="chat" element={<ChatComponent />} />
                 </Route>
+
             </Routes>
         </div>
     );

@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 
 
 function HeaderLayout() {
+
+    const handleLogout = () => {
+
+    };
     return (
         <>
 
@@ -264,7 +268,7 @@ function HeaderLayout() {
                                         <ul className="user-menu-small-nav">
                                             <li><a href="dashboard.html"><i className="icon-material-outline-dashboard"></i> Dashboard</a></li>
                                             <li><a href="dashboard-settings.html"><i className="icon-material-outline-settings"></i> Settings</a></li>
-                                            <li><a href="index-logged-out.html"><i className="icon-material-outline-power-settings-new"></i> Logout</a></li>
+                                            <li><a onClick={handleLogout}><i className="icon-material-outline-power-settings-new"></i> Logout</a></li>
                                         </ul>
 
                                     </div>
