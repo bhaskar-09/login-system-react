@@ -1,7 +1,9 @@
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 
 function HeaderLayout() {
+    const userProfile = useSelector((state) => state.auth.userProfile);
 
     const handleLogout = () => {
 
@@ -68,15 +70,6 @@ function HeaderLayout() {
                                             </li>
                                             <li>
                                                 <Link to="/chat">Chat</Link>
-                                            </li>
-                                            <li>
-                                                <Link to="/add-posts">Add Posts</Link>
-                                            </li>
-                                            <li>
-                                                <Link to="/add-posts">Add Posts</Link>
-                                            </li>
-                                            <li>
-                                                <Link to="/add-posts">Add Posts</Link>
                                             </li>
                                             <li>
                                                 <Link to="/add-posts">Add Posts</Link>
@@ -252,7 +245,7 @@ function HeaderLayout() {
                                             <div className="user-details">
                                                 <div className="user-avatar status-online"><img src="images/user-avatar-small-01.jpg" alt="img" /></div>
                                                 <div className="user-name">
-                                                    Tom Smith <span>Freelancer</span>
+                                                    {userProfile.name} <span>Freelancer</span>
                                                 </div>
                                             </div>
 

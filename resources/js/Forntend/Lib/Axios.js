@@ -3,11 +3,13 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
+let headers = {
+    "Content-Type": "application/json",
+};
+
 const instance = axios.create({
     baseURL: "/api/",
-    headers: {
-        "Content-Type": "application/json",
-    },
+    headers: headers,
 });
 
 const useAxiosLoader = () => {
@@ -18,6 +20,13 @@ const useAxiosLoader = () => {
 
         const handleRequest = (config) => {
             inc(1);
+            const AuthToken = localStorage.getItem("token")
+                ? localStorage.getItem("token")
+                : "";
+            if (AuthToken != "") {
+                config.headers.Authorization = "Bearer " + AuthToken;
+            }
+
             return config;
         };
         const handleResponse = (response) => {

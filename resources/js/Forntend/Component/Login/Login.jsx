@@ -2,8 +2,12 @@ import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import axios from "../../Lib/Axios.js";
 
+import { useDispatch, useSelector } from "react-redux";
+import { authActions } from "../../Redux/slice/auth";
+
 function LoginPage() {
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const {
         register,
         handleSubmit,
@@ -16,6 +20,9 @@ function LoginPage() {
             if (response.data.success) {
                 localStorage.setItem('token', response.data.token);
                 localStorage.setItem('isLogedin', response.data.success);
+
+                dispatch(authActions.ToggleIsLogedin(response.data.success));
+                dispatch(authActions.updateToken(response.data.token));
                 navigate("/profile", { replace: true });
             }
         } catch (error) {

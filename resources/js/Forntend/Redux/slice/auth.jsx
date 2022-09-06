@@ -5,10 +5,17 @@ const authSlice = createSlice({
     initialState: {
         IsLogedin: localStorage.getItem('isLogedin') ? localStorage.getItem('isLogedin') : false,
         token: localStorage.getItem('token') ? localStorage.getItem('token') : "",
+        userProfile: {},
     },
     reducers: {
-        ToggleIsLogedin(state) {
-            state.IsLogedin = !state.IsLogedin;
+        ToggleIsLogedin(state, action) {
+            state.IsLogedin = action.payload;
+        },
+        updateToken(state, action) {
+            state.token = action.payload;
+        },
+        updateUserProfile(state, action) {
+            state.userProfile = action.payload;
         },
     },
 });

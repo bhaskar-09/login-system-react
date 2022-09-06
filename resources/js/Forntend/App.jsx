@@ -3,6 +3,10 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { useSelector } from 'react-redux';
 
 import { AxiosLoader } from "./Lib/Axios";
+
+import { syncProfile } from "./Lib/Hooks";
+
+
 import LoginPage from "./Component/Login/Login";
 import RegisterPage from "./Component/Register/Register";
 
@@ -15,24 +19,35 @@ import ChatComponent from "./Component/Chat/ChatComponent";
 
 import HeaderLayout from "./Component/Comon/Header";
 import LoaderComponent from "./Component/Comon/Loader";
+import { useEffect } from "react";
 
 function App() {
     const showLoader = AxiosLoader();
     const isLogedin = useSelector((state) => state.auth.IsLogedin);
     const location = useLocation();
-    console.log(location);
+    const profileData = syncProfile();
+
     const nonAuthPath = [
         '/login', '/register'
     ]
-    if (!nonAuthPath.includes(location.pathname)) {
-        console.log("Check Auth");
 
-        if (!isLogedin) {
-            console.log("Not Login");
-        } else {
-            console.log("Loged in");
+    useEffect(() => {
+        console.log(profileData);
+        if (!nonAuthPath.includes(location.pathname)) {
+            console.log("Check Auth");
+
+            if (!isLogedin) {
+                console.log("Not Login");
+            } else {
+                console.log("Loged in");
+            }
         }
-    }
+    }, [location])
+
+
+
+
+
     return (
         <div className="wrapper">
             {showLoader && <LoaderComponent />}
