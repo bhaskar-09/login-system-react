@@ -37,7 +37,7 @@ class UserController extends Controller
             return response()->json([
                     'success' => false,
                     'message' => $errMsg
-            ], 500);
+            ], 202);
         }
         $data = [
             "name" => $request->name,
@@ -90,7 +90,7 @@ class UserController extends Controller
     }
 
     public function viewProfile(){
-        $responseMessage = "user profile";
+        $responseMessage = "User Profile";
         $data = Auth::guard("api")->user();
         return response()->json([
             "success" => true,
@@ -101,7 +101,7 @@ class UserController extends Controller
     public function logout(){
         $user = Auth::guard("api")->user()->token();
         $user->revoke();
-        $responseMessage = "successfully logged out";
+        $responseMessage = "Successfully logged out";
         return response()->json([
             'success' => true,
             'message' => $responseMessage

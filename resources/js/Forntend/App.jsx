@@ -1,11 +1,10 @@
 import "./Assets/css/style.css";
-import { Routes, Route, useLocation } from "react-router-dom";
-import { useSelector } from 'react-redux';
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 import { AxiosLoader } from "./Lib/Axios";
 
 import { syncProfile } from "./Lib/Hooks";
-
 
 import LoginPage from "./Component/Login/Login";
 import RegisterPage from "./Component/Register/Register";
@@ -14,8 +13,6 @@ import DashboardLayout from "./Component/Dashboard/Dashboard";
 import ProfilePage from "./Component/Profile/Profile";
 
 import NotFoundComponent from "./Component/Error/NotFoundComponent";
-import AddPostComponent from "./Component/Posts/AddPostComponent";
-import ChatComponent from "./Component/Chat/ChatComponent";
 
 import HeaderLayout from "./Component/Comon/Header";
 import LoaderComponent from "./Component/Comon/Loader";
@@ -26,27 +23,21 @@ function App() {
     const isLogedin = useSelector((state) => state.auth.IsLogedin);
     const location = useLocation();
     const profileData = syncProfile();
+    const navigate = useNavigate();
 
-    const nonAuthPath = [
-        '/login', '/register'
-    ]
+    const nonAuthPath = ["/login", "/register"];
 
     useEffect(() => {
-        console.log(profileData);
-        if (!nonAuthPath.includes(location.pathname)) {
-            console.log("Check Auth");
-
-            if (!isLogedin) {
-                console.log("Not Login");
-            } else {
-                console.log("Loged in");
+        if (!isLogedin) {
+            if (!nonAuthPath.includes(location.pathname)) {
+                navigate("/login", { replace: true });
+            }
+        } else {
+            if (nonAuthPath.includes(location.pathname)) {
+                navigate("/", { replace: true });
             }
         }
-    }, [location])
-
-
-
-
+    }, [location]);
 
     return (
         <div className="wrapper">
@@ -57,13 +48,24 @@ function App() {
                 <Route path="register" element={<RegisterPage />} />
 
                 <Route path="/" element={<DashboardLayout />}>
+                    <Route
+                        path=""
+                        element={
+                            <h1
+                                style={{
+                                    textAlign: "center",
+                                    fontSize: "xx-large",
+                                    margin: "100px",
+                                    fontWeight: "bold",
+                                }}
+                            >
+                                Dashboard
+                            </h1>
+                        }
+                    />
                     <Route path="profile" element={<ProfilePage />} />
-
                     <Route path="404" element={<NotFoundComponent />} />
-                    <Route path="add-posts" element={<AddPostComponent />} />
-                    <Route path="chat" element={<ChatComponent />} />
                 </Route>
-
             </Routes>
         </div>
     );

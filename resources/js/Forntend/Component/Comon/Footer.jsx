@@ -1,12 +1,12 @@
 function FooterLayout() {
     return (
         <>
-
             {/* Footer */}
             <div className="dashboard-footer-spacer"></div>
             <div className="small-footer margin-top-15">
                 <div className="small-footer-copyrights">
-                    © 2019 <strong>Hireo</strong>. All Rights Reserved.
+                    © {new Date().getFullYear()} <strong>BHASKAR</strong>. All
+                    Rights Reserved.
                 </div>
                 <ul className="footer-social-links">
                     <li>
@@ -20,7 +20,11 @@ function FooterLayout() {
                         </a>
                     </li>
                     <li>
-                        <a href="/" title="Google Plus" data-tippy-placement="top">
+                        <a
+                            href="/"
+                            title="Google Plus"
+                            data-tippy-placement="top"
+                        >
                             <i className="icon-brand-google-plus-g"></i>
                         </a>
                     </li>
@@ -34,8 +38,7 @@ function FooterLayout() {
             </div>
             {/* Footer / End */}
         </>
-    )
+    );
 }
-
 
 export default FooterLayout;

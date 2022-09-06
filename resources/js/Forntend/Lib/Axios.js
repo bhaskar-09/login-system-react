@@ -13,13 +13,16 @@ const instance = axios.create({
 });
 
 const useAxiosLoader = () => {
+    const nonLoaderPath = ["/users/view-profile"];
     const [counter, setCounter] = useState(0);
 
     useEffect(() => {
         const inc = (mod) => setCounter((c) => c + mod);
 
         const handleRequest = (config) => {
-            inc(1);
+            if (!nonLoaderPath.includes(config.url)) {
+                inc(1);
+            }
             const AuthToken = localStorage.getItem("token")
                 ? localStorage.getItem("token")
                 : "";
@@ -30,11 +33,13 @@ const useAxiosLoader = () => {
             return config;
         };
         const handleResponse = (response) => {
-            inc(-1);
-            if (response.data.success) {
-                toast.success(response.data.message);
-            } else {
-                toast.error(response.data.message);
+            if (!nonLoaderPath.includes(response.config.url)) {
+                inc(-1);
+                if (response.data.success) {
+                    toast.success(response.data.message);
+                } else {
+                    toast.error(response.data.message);
+                }
             }
             return response;
         };
